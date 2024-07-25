@@ -80,7 +80,7 @@ export default function Post() {
           <h1 className='text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl'>
             {post && post.title}
           </h1>
-          <div className='flex text-center justify-center'>
+          <div className='flex text-center justify-center flex-wrap'>
           {post && post.category && post.category.length > 0 && (
             post.category.map((cat, index) => (
               <Link to={`/category/${cat.value}`} key={cat._id}>

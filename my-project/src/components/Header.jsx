@@ -57,24 +57,10 @@ export default function Header() {
   <Link to='/' className=' text-black self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'>
     <img src="https://www.marklytics.co.uk/wp-content/uploads/2023/12/logomark0.png" className='w-full h-8 md:w-full md:h-12' alt="Logo" />
   </Link>
-{/*<div className='flex border-none'>
-   <form onSubmit={handleSubmit}>
-    <TextInput 
-      type='text'
-      placeholder='Search...'
-      className='hidden lg:inline border-non   '
-      value={searchTerm}
-      onChange={(e)=>setSearchTerm(e.target.value)}
-    />
-  </form>
-  <Button type="submit" onClick={handleSubmit} className='w-22 h-10 text-center flex justify-center p-1 hidden bg-gray-100 lg:block ' color='gray'  ><AiOutlineSearch /></Button>
-  </div>
-  <Button type='submit' onClick={()=>navigate("/search")} className='w-22 h-10 text-center flex justify-center p-1 lg:hidden' color='gray' pill>
-    <AiOutlineSearch />
-  </Button> */}
+
   
 
-  <form class="flex items-center max-w-sm ">   
+  <form class="flex  md:items-center max-w-sm ">   
     <label for="simple-search" class="sr-only">Search</label>
     <div class="relative w-full sm:block hidden">
         <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -91,7 +77,7 @@ export default function Header() {
         </svg>
         <span class="sr-only">Search</span>
     </button>
-    <button type="submit" onClick={()=>navigate("/search")} class="p-2.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 sm:hidden block dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+    <button type="submit" onClick={()=>navigate("/search")} class="md:p-2.5 p-1.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 sm:hidden block dark:hover:bg-blue-700 dark:focus:ring-blue-800">
         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
         </svg>
@@ -114,7 +100,6 @@ export default function Header() {
       <Dropdown
       arrowIcon={false}
       inline
-
       label={
         <Avatar alt='user' className='w-12 h-6' img={currentUser.photoUrl} rounded />
       }
@@ -132,7 +117,7 @@ export default function Header() {
             <Dropdown.Item onClick={handleSignOut} >Sign out</Dropdown.Item>
       </Dropdown>
     ):(<Link to='/sign-in'>
-    <button class=" w-13 h-10  relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+    <button class=" sm:w-13 sm:h-10 w-11 h-8  relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden sm:text-sm text-xs  font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
 <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
 Sign-in
 </span>
