@@ -1,0 +1,30 @@
+{
+    "carouselImages": [
+      {
+        "src": "https://images.pexels.com/photos/7947663/pexels-photo-7947663.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "alt": "Slide 1",
+        "text": "Text for Slide 1"
+      },
+      {
+        "src": "https://images.pexels.com/photos/7947837/pexels-photo-7947837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "alt": "Slide 2",
+        "text": "Text for Slide 2"
+      },
+      {
+        "src": "https://images.pexels.com/photos/7109315/pexels-photo-7109315.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "alt": "Slide 3",
+        "text": "Text for Slide 3"
+      },
+      {
+        "src": "https://images.pexels.com/photos/7674621/pexels-photo-7674621.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "alt": "Slide 4",
+        "text": "Text for Slide 4"
+      },
+      {
+        "src": "https://images.pexels.com/photos/4960438/pexels-photo-4960438.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "alt": "Slide 5",
+        "text": "Text for Slide 5"
+      }
+    ]
+  }
+  
