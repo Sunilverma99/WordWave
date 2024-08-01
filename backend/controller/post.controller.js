@@ -25,9 +25,8 @@ const createPost=async(req,res,next)=>{
 const getposts = async (req, res, next) => {
   try {
     const startIndex = parseInt(req.query.startIndex) || 0;
-    const limit = parseInt(req.query.limit) || 9;
+    const limit = parseInt(req.query.limit) || 12;
     const sortDirection = req.query.order === 'asc' ? 1 : -1;
-
     // Build the query object
     const query = {
       ...(req.query.userId && { userId: req.query.userId }),

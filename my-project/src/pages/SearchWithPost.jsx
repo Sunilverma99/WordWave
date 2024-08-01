@@ -7,7 +7,7 @@ function SearchWithPost() {
     useScrollToTop();
     const [sidebarData, setSidebarData] = useState({
         searchTerm: '',
-        sort: 'desc',
+        sort: 'asc',
         category: 'uncategorized',
       });
     
@@ -36,7 +36,7 @@ function SearchWithPost() {
         const fetchPosts = async () => {
           setLoading(true);
           const urlParams = new URLSearchParams(window.location.search);
-          urlParams.set('limit', '5');
+          urlParams.set('limit', '8');
           const searchQuery = urlParams.toString();
           const res = await fetch(`/api/post/posts?${searchQuery}`);
           if (!res.ok) {
