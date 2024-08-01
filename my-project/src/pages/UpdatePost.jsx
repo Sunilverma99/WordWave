@@ -13,11 +13,11 @@ import { app } from '../../firebase';
 import toast from 'react-hot-toast';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-
+import useScrollToTop from "../components/useScrollToTop.jsx"
 import { useDispatch, useSelector } from 'react-redux';
 export default function UpdatePost() {
+  useScrollToTop();
 const {postId}=useParams();
-  
   const[files,setFiles]=useState([]);
   const[formData,setFormData]=useState({});
   const[imageUpload,setImageUpload]=useState(false);

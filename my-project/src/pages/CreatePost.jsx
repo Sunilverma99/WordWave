@@ -1,6 +1,7 @@
 import { Select, TextInput, FileInput, Button } from 'flowbite-react';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useScrollToTop from "../components/useScrollToTop.jsx"
 import {
   getDownloadURL,
   getStorage,
@@ -17,6 +18,7 @@ import { useDispatch } from 'react-redux';
 import { MultiSelect } from "react-multi-select-component";
 
 export default function CreatePost() {
+  useScrollToTop();
   const [files, setFiles] = useState([]);
   const [formData, setFormData] = useState({ title: '', content: '', category: [] });
   const [imageUpload, setImageUpload] = useState(false);

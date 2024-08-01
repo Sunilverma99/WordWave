@@ -2,8 +2,9 @@ import { Button, Select, TextInput } from 'flowbite-react';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import PostCard from '../components/PostCard';
-
+import useScrollToTop from "../components/useScrollToTop.jsx"
 function SearchWithPost() {
+    useScrollToTop();
     const [sidebarData, setSidebarData] = useState({
         searchTerm: '',
         sort: 'desc',

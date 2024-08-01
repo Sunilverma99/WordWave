@@ -15,17 +15,25 @@ import { Toaster } from 'react-hot-toast';
 import Post from './pages/Post.jsx';
 import Search from './pages/Search.jsx';
 import About from './pages/About.jsx';
+import MinuteMonthely from './pages/Min_monthly.jsx';
+import Sponsors from './pages/Sponsors.jsx';
+import Consulting from './pages/Consulting.jsx';
+import SponsorsRegistration from './pages/Payment.jsx'
 function App() {
   return (
     <BrowserRouter>
     <Header/>
     <Routes>
        <Route  path="/" element={<Home/>}/>
+       <Route  path="/5-min-monthly" element={<MinuteMonthely/>}/>
+       <Route  path="/sponsors" element={<Sponsors/>}/>
+       <Route  path="/consulting" element={<Consulting/>}/>
        <Route  path="/contact" element={<Contact/>}/>
        <Route  path="/sign-in" element={<Signin/>}/>
        <Route  path="/sign-up" element={<Signup/>}/>
        <Route  path="/search" element={<Search/>}/>
        <Route  path="/about" element={<About/>}/>
+       <Route  path="/sponsor-registration" element={<SponsorsRegistration/>}/>
        <Route  element={<PrivateRoute/>}>
        <Route  path="/dashboard" element={<Dashbord/>}/>
        </Route>

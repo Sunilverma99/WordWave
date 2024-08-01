@@ -6,7 +6,7 @@ import CommentSection from '../components/CommentSection.jsx';
 import { useSelector } from 'react-redux';
 import PostCard from "../components/PostCard.jsx";
 import Search from "./SearchWithPost.jsx";
-
+import useScrollToTop from "../components/useScrollToTop.jsx"
 export default function Post() {
   const { currentUser } = useSelector((state) => state.user);
   const [loading, setLoading] = useState(false);
@@ -14,7 +14,7 @@ export default function Post() {
   const [recentPosts, setRecentPosts] = useState([]);
   const [error, setError] = useState(false);
   const { slag } = useParams();
-
+  useScrollToTop();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [post]);

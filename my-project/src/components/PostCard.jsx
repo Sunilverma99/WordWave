@@ -13,9 +13,9 @@ export default function PostCard({ post }) {
       <div className='p-3 flex flex-col gap-2'>
         <p className='text-lg font-semibold line-clamp-2'>{post.title}</p>
         <span className='italic text-sm'>
-          {post.category.map((cat, index) => (
-            <span key={index}>{cat.label}</span>
-          ))}
+        {post.category.slice(0, 4).map((cat, index) => (
+  <span className='p-2 m-1 text-xs bg-gray-100 rounded-lg' key={index}>{cat.label}</span>
+))}
         </span>
         <Link
           to={`/post/${post.slag}`}

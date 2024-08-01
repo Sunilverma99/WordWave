@@ -7,8 +7,9 @@ import DashPosts from '../components/DashPosts.jsx'
 import DashUsers from '../components/DashUsers.jsx';
 import DashComments from '../components/DashComments.jsx';
 import DashboredComp from '../components/DashboredComp.jsx';
-
+import useScrollToTop from "../components/useScrollToTop.jsx"
 function Dashbored() {
+  useScrollToTop();
   const location=useLocation();
   const[tab,setTab]=useState('');
   useEffect(()=>{

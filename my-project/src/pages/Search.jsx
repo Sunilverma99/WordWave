@@ -3,13 +3,14 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import PostCard from '../components/PostCard';
 import { MultiSelect } from "react-multi-select-component";
+import useScrollToTop from "../components/useScrollToTop.jsx"
 export default function Search(props) {
   const [sidebarData, setSidebarData] = useState({
     searchTerm: '',
     sort: 'desc',
     category: "",
   });
-
+    useScrollToTop();
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showMore, setShowMore] = useState(false);

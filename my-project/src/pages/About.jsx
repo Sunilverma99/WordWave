@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
+import useScrollToTop from "../components/useScrollToTop.jsx"
 function About() {
+  useScrollToTop();
   return (
     <div className="min-h-screen">
       <div className="container mx-auto py-12 px-4">
@@ -13,17 +14,9 @@ function About() {
         >
           About Us
         </motion.h1>
-        <div className='flex flex-col gap-4 lg:flex-row lg:gap-8'>
+        <div className='flex flex-col gap-4'>
           <motion.div 
-            className='w-full  rounded-lg p-4'
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <img className='w-full h-auto rounded-lg' src="https://images.pexels.com/photos/6803523/pexels-photo-6803523.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
-          </motion.div>
-          <motion.div 
-            className="bg-opacity-75 p-8 w-full lg:w-1/2 rounded-lg shadow-xl"
+            className="bg-opacity-75 p-8 w-full rounded-lg shadow-xl"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -46,7 +39,6 @@ function About() {
             <p className="text-lg text-gray-800 dark:text-gray-200 mb-6">
               Website: <a href="https://www.marklytics.co.uk/" className="text-blue-500">https://www.marklytics.co.uk/</a>
             </p>
-           
           </motion.div>
         </div>
       </div>

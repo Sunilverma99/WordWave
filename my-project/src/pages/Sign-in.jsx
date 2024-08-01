@@ -6,15 +6,14 @@ import { useNavigate } from 'react-router-dom';
 import { setUser } from '../../redux/user/userSlice';
 import {useDispatch } from 'react-redux'
 import OAuth from '../components/OAuth';
-
+import useScrollToTop from "../components/useScrollToTop.jsx"
 function Signin() {
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
     const navigate=useNavigate();
     const dispatch=useDispatch();
-    console.log(email,password);
 
-
+    useScrollToTop();
     const handleSubmit = async (e) => {
       e.preventDefault(); // Corrected typo here
       if (email === "" || password === "") {

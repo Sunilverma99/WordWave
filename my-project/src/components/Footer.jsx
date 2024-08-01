@@ -9,14 +9,14 @@ export default function FooterCom() {
     <Footer container className='border border-t-8 border-teal-500'>
       <div className='w-full max-w-7xl mx-auto'>
         <div className='grid w-full justify-between sm:flex md:grid-cols-1'>
-          <div className='mt-5'>
+          <div className='mt-1'>
             <Link
               to='/'
               className='self-center whitespace-nowrap text-black text-lg sm:text-xl font-semibold dark:text-white'
             >
               <img src="https://www.marklytics.co.uk/wp-content/uploads/2023/12/logomark0.png" className='w-44 h-12' alt="Marklytics Logo" />
             </Link>
-            <p className='font-thin '>
+            <p className='text-sm  '>
               At Marklytics, we’re your strategic ally in the tech, data, and market landscape.
               With a focus on innovation and client <br/> success, we offer Data Science, AI <br/> Solutions,
               Market Research, Go-to- <br/>Market, and Sales & Marketing services.

@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {Button} from "flowbite-react"
 import {toast} from "react-hot-toast"
+import useScrollToTop from "../components/useScrollToTop.jsx"
 function Contact() {
  const[name,setName]=useState("");
  const[email,setEmail]=useState("");
 const[subject,setSubject]=useState("");
 const[message,setMessage]=useState("");
+useScrollToTop();
 const handleSubmit=async(e)=>{
     e.preventDefault();
     const data={name,email,subject,message};
@@ -36,15 +38,15 @@ const navigateToFacebook=()=>{
 }
 
   return (
-    <div class=" p-12 grid sm:grid-cols-2 items-center  gap-16 my-6 mx-auto max-w-4x text-[#333] dark:text-white font-[sans-serif]">
-    <div>
-        <h1 class="text-3xl  font-extrabold ">Let's Get in Touch</h1>
-        <p class="text-sm text-gray-400 mt-3">Ready to turn your vision into reality? Connect with us today and let's make your project a success together!</p>
-<p class="text-sm text-gray-400 mt-3">At Marklytics, we believe in the power of innovation and collaboration. Our dedicated team is here to provide tailored solutions that drive growth and exceed your expectations.</p>
-<p class="text-sm text-gray-400 mt-3">With a passion for excellence and a commitment to delivering results, we are your trusted partner in navigating the complexities of the digital landscape. Let's create something extraordinary.</p>
-<p class="text-sm text-gray-400 mt-3">Join us on a journey where creativity meets technology, and together, we'll transform challenges into opportunities. Your success is our mission.</p>
+    <div class=" font-roboto mb-28 p-12 grid sm:grid-cols-2 items-center  gap-16 my-6 mx-auto max-w-4x text-[#333] dark:text-white ">
+    <div className=' font-roboto'>
+        <h1 class="md:text-5xl text-3xl   font-extrabold ">Let's Get in Touch</h1>
+        <p class="text-lg  mt-3">Ready to turn your vision into reality? Connect with us today and let's make your project a success together!</p>
+<p class="text-lg mt-3">At Marklytics, we believe in the power of innovation and collaboration. Our dedicated team is here to provide tailored solutions that drive growth and exceed your expectations.</p>
+<p class="text-lg mt-3">With a passion for excellence and a commitment to delivering results, we are your trusted partner in navigating the complexities of the digital landscape. Let's create something extraordinary.</p>
+{/* <p class="text-sm  mt-3">Join us on a journey where creativity meets technology, and together, we'll transform challenges into opportunities. Your success is our mission.</p> */}
         <div class="mt-12">
-            <h2 class="text-lg font-extrabold">Email</h2>
+            <h2 class="text-xl font-extrabold">Email</h2>
             <ul class="mt-3">
                 <li class="flex items-center">
                     <div class=" bg-zinc-200 dark:bg-white  h-10 w-10 rounded-full flex items-center justify-center shrink-0">
@@ -56,13 +58,13 @@ const navigateToFacebook=()=>{
                         </svg>
                     </div>
                     <a href="javascript:void(0)" class="text-[#007bff] text-sm ml-3">
-                        <small class="block">Mail</small>
+                        <small class="block ">Mail</small>
                         <strong>info@marklytics.co.uk</strong>
                     </a>
                 </li>
             </ul>
         </div>
-        <div class="mt-12">
+        {/* <div class="mt-12">
             <h2 class="text-lg font-extrabold">Socials</h2>
             <ul class="flex mt-3 space-x-4">
                 <li onClick={navigateToFacebook} class=" bg-zinc-200 dark:bg-white h-10 w-10 rounded-full flex items-center justify-center shrink-0">
@@ -92,7 +94,7 @@ const navigateToFacebook=()=>{
                     </a>
                 </li>
             </ul>
-        </div>
+        </div> */}
     </div>
     <form onSubmit={handleSubmit} class="ml-auo space-y-4">
         <input type='text' onChange={(e)=>setName(e.target.value)} placeholder='Name'
@@ -103,7 +105,12 @@ const navigateToFacebook=()=>{
             class="w-full rounded-md py-3 px-4 bg-gray-100 dark:text-black  text-sm outline-[#007bff]" />
         <textarea placeholder='Message' onChange={(e)=>setMessage(e.target.value)} rows="6"
             class="w-full rounded-md px-4 bg-gray-100 text-sm pt-3 dark:text-black  outline-[#007bff]"></textarea>
-          <Button type='submit' gradientDuoTone="purpleToPink" className='w-full'>Send</Button>
+           <button
+              type="submit"
+              className="w-full bg-green-600 text-white p-2 rounded mt-2"
+            >
+              Send
+            </button>
     </form>
 </div>
   )
