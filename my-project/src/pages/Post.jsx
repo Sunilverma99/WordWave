@@ -43,7 +43,7 @@ export default function Post() {
   useEffect(() => {
     const fetchRecentPosts = async () => {
       try {
-        const res = await fetch(`/api/post/posts?limit=4`, {
+        const res = await fetch(`/api/post/posts?limit=8`, {
           method: "GET",
         });
         const data = await res.json();
