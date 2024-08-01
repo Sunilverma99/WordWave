@@ -77,10 +77,10 @@ const handleSubmit=async(e)=>{
                 </div>
             </section>
         </div>
-        <div class="flex  w-full items-center justify-center py-16 bg-gray-900 text-white">
-        <div class="text-center">        
-                <p class="text-xl md:text-3xl mb-4">Stay informed</p>
-            <p class="text-lg md:text-2xl mb-6">Information + Context + Judgment</p>
+        <div className="flex  w-full items-center justify-center py-16 bg-gray-900 text-white">
+        <div className="text-center">        
+                <p className="text-xl md:text-3xl mb-4">Stay informed</p>
+            <p className="text-lg md:text-2xl mb-6">Information + Context + Judgment</p>
         </div>
     </div>
     <div className='p-4 text-center font-bold'>
@@ -89,15 +89,15 @@ const handleSubmit=async(e)=>{
     </div>
     <div className='p-4  py-12 flex  justify-center'>
    
-    <form onSubmit={handleSubmit} class="ml-auo max-w-4xl  space-y-4">
+    <form onSubmit={handleSubmit} className="ml-auo max-w-4xl  space-y-4">
         <input type='text' onChange={(e)=>setName(e.target.value)} placeholder='Name'
-            class="w-full rounded-md py-3 px-4 bg-gray-100 dark:text-black text-sm outline-[#007bff]" />
+            className="w-full rounded-md py-3 px-4 bg-gray-100 dark:text-black text-sm outline-[#007bff]" />
         <input type='email' onChange={(e)=>setEmail(e.target.value)} placeholder='Email'
-            class="w-full rounded-md py-3 px-4 bg-gray-100 dark:text-black  text-sm outline-[#007bff]" />
+            className="w-full rounded-md py-3 px-4 bg-gray-100 dark:text-black  text-sm outline-[#007bff]" />
         <input type='text' onChange={(e)=>setSubject(e.target.value)} placeholder='Subject'
-            class="w-full rounded-md py-3 px-4 bg-gray-100 dark:text-black  text-sm outline-[#007bff]" />
+            className="w-full rounded-md py-3 px-4 bg-gray-100 dark:text-black  text-sm outline-[#007bff]" />
         <textarea placeholder='Message' onChange={(e)=>setMessage(e.target.value)} rows="6"
-            class="w-full rounded-md px-4 bg-gray-100 text-sm pt-3 dark:text-black  outline-[#007bff]"></textarea>
+            className="w-full rounded-md px-4 bg-gray-100 text-sm pt-3 dark:text-black  outline-[#007bff]"></textarea>
            <button
               type="submit"
               className="w-full bg-green-600 text-white p-2 rounded mt-2"
