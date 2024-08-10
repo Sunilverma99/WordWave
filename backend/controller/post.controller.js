@@ -74,7 +74,7 @@ const getposts = async (req, res, next) => {
 
 const increasePostViews=async(req,res,next)=>{
   try {
-    const post = await Post.findById(req.params.postId);
+    const post = await Post.findOne({slag:req.params.slag});
     if (!post) {
       return next(errHandler(404, "Post not found"));
     }

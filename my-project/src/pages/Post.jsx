@@ -37,9 +37,22 @@ export default function Post() {
       }
       setLoading(false);
     };
+    const updateNumberOfViews = async () => {
+      try {
+        const res = await fetch(`/api/post/increase-views/${slag}`, {
+          method: "PUT",
+        });
+        const data = await res.json();
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
     fetchPost();
+    updateNumberOfViews();
   }, [slag]);
 
+  
   useEffect(() => {
     const fetchRecentPosts = async () => {
       try {
@@ -56,6 +69,7 @@ export default function Post() {
     };
     fetchRecentPosts();
   }, []);
+ 
 
   if (loading) {
     return (
