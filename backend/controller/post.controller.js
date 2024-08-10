@@ -72,6 +72,19 @@ const getposts = async (req, res, next) => {
   }
 };
 
+const increasePostViews=async(req,res,next)=>{
+  try {
+    const post = await Post.findById(req.params.postId);
+    if (!post) {
+      return next(errHandler(404, "Post not found"));
+    }
+    post.numberofViews += 1;
+    await post.save();
+    res.status(200).json(post);
+  } catch (error) {
+    next(error);
+  }
+}
 
 const deletePost = async (req, res, next) => {
   // Check if the user is a content writer or an admin
@@ -120,4 +133,4 @@ const updatePost=async(req,res,next)=>{
     next(error);
    }
 }
-export {createPost,getposts,deletePost ,updatePost}
+export {createPost,getposts,deletePost ,updatePost,increasePostViews}
