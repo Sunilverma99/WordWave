@@ -2,7 +2,6 @@ import {errHandler} from "../utlies/error.js"
 import Client from "../models/client.modal.js"
 import MonthlySubscriber from "../models/monthlySubscibe.model.js"
   const Clientside=async(req,res,next)=>{
-    console.log(req.body);
      if(req.body.name===''||!req.body.email===''||!req.body.subject===""||!req.body.message===""){
         return next(errHandler(400,"Please fill all the fields"));
      } 

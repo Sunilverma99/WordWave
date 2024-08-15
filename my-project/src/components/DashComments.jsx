@@ -27,7 +27,6 @@ export default function DashComments() {
                       setShowMore(true)
                     }
                       setComments(data.comments);
-                      console.log(data)
                   }
               } else {
                   console.log("currentUser or currentUser._id is undefined");
@@ -68,7 +67,6 @@ export default function DashComments() {
           method:"DELETE"
         });
         const data=await res.json();
-        console.log(data)
         if(res.ok){
           toast.success("Comment Deleted Successfully");
           setComments(comments.filter(comment=>comment._id!==deleteCommentId));

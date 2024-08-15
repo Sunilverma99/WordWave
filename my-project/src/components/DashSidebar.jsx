@@ -28,7 +28,6 @@ export default function DashSidebar() {
         method:"POST"
       });
       const data=await res.json();
-      console.log(data);
       if(!res.ok||res.status!==200){
         toast.error(data.message);
       }else{

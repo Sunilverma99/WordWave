@@ -22,7 +22,7 @@ export default function Header() {
         method:"POST"
       });
       const data=await res.json();
-      console.log(data);
+      
       if(!res.ok){
         toast.error(data.message);
       }else{
@@ -36,14 +36,13 @@ export default function Header() {
   const handleSubmit=async(e)=>{
     e.preventDefault();
     const urlParms=new URLSearchParams(location.search);
-    console.log(urlParms);
+   
     urlParms.set('searchTerm',searchTerm);
-    console.log(urlParms)
+ 
     const searchQuery=urlParms.toString();
-    console.log(searchQuery)
     navigate(`/search?${searchQuery}`)
   }
-  console.log(searchTerm);
+
   useEffect(()=>{
     const urlParms=new URLSearchParams(location.search);
     const searchTermUrl=urlParms.get('searchTerm');

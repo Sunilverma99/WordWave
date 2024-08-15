@@ -1,5 +1,6 @@
 import  {errHandler} from "../utlies/error.js";
 import Post from "../models/post.model.js"
+import Comment from "../models/comments.model.js";
 const createPost=async(req,res,next)=>{
   if(!req.user.isContentWriter){
     return next(errHandler(401,"You are not allowed to create post"));
@@ -72,19 +73,73 @@ const getposts = async (req, res, next) => {
   }
 };
 
-const increasePostViews=async(req,res,next)=>{
+const increasePostViews = async (req, res, next) => {
   try {
-    const post = await Post.findOne({slag:req.params.slag});
+    const post = await Post.findOne({ slag: req.params.slag });
     if (!post) {
       return next(errHandler(404, "Post not found"));
     }
-    post.numberofViews += 1;
-    await post.save();
+
+    const user = req.user;
+    if (user) {
+      const isUserViewedPost = post.numberOfViews.some(view => view.userId === user.id);
+      if (!isUserViewedPost) {
+        post.numberOfViews.push({ userId: user.id });
+        await post.save();  // Save only if the user has not viewed the post yet
+      }
+    }
+
     res.status(200).json(post);
   } catch (error) {
     next(error);
   }
-}
+};
+
+
+const getTrendingPosts = async (req, res, next) => {
+  try {
+    const trendingPosts = await Post.aggregate([
+      { $match: {} },
+      {
+        $lookup: {
+          from: "Comments", 
+          localField: "_id",
+          foreignField: "postId",
+          as: "commentsData"
+        }
+      },
+      {
+        $addFields: {
+          numberOfComments: { $size: "$commentsData" },
+          totalLikesOnComments: { $sum: "$commentsData.numberOfLikes" }
+        }
+      },
+      { $sort: { "numberOfViews.length": -1 } },
+      { $limit: 10 },
+      {
+        $project: {
+          userId: 1,
+          title: 1,
+          category: 1,
+          content: 1,
+          slag: 1,
+          photoUrl: 1,
+          numberOfViews: 1,
+          numberOfComments: 1,
+          totalLikesOnComments: 1,
+          createdAt: 1,
+          updatedAt: 1
+        }
+      }
+    ]);
+
+    res.status(200).json(trendingPosts);
+  } catch (error) {
+    next(error);
+  }
+};
+
+
 
 const deletePost = async (req, res, next) => {
   // Check if the user is a content writer or an admin
@@ -133,4 +188,4 @@ const updatePost=async(req,res,next)=>{
     next(error);
    }
 }
-export {createPost,getposts,deletePost ,updatePost,increasePostViews}
+export {createPost,getposts,deletePost ,updatePost,increasePostViews,getTrendingPosts}

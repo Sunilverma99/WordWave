@@ -38,9 +38,9 @@ const postSchema = new mongoose.Schema({
     type: String,
     default: "https://images.pexels.com/photos/837358/pexels-photo-837358.jpeg?auto=compress&cs=tinysrgb&w=600"
   },
-  numberofViews:{
-    type:Number,
-    default:1
+  numberOfViews:{
+    type:Array,
+    default:[]
   }
 }, { timestamps: true });
 

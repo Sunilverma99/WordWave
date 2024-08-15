@@ -20,9 +20,9 @@ export default function Home() {
   useScrollToTop();
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await fetch("/api/post/posts");
+      const res = await fetch("/api/post/get-trending-posts");
       const data = await res.json();
-      setPosts(data.posts);
+      setPosts(data);
     };
     fetchPosts();
   }, []);
@@ -39,7 +39,6 @@ export default function Home() {
         },
         body: JSON.stringify({ email, firstName, lastName }),
       });
-      console.log(response);
       const data = await response.json();
       if(response.status === 200) {
         toast.success('Subscribed successfully');
@@ -109,7 +108,7 @@ export default function Home() {
       <div className="flex gap-6 justify-between flex-wrap">
   {posts && posts.length > 0 ? (
     <div className="flex flex-col gap-6">
-      <h2 className="text-2xl font-semibold text-center">Recent Posts</h2>
+      <h2 className="text-2xl font-semibold text-center">Trending Posts</h2>
       <div className="flex flex-wrap gap-6 items-center ">
         {posts.map((post) => (
           <PostCard key={post._id} post={post} />

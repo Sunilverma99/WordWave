@@ -23,7 +23,6 @@ useEffect(()=>{
 const handleEdit= async()=>{
  setIsEditing(true);
   setEdititedComment(comment.comment)
-  console.log(isEditing)
 }
 const handleSave=async()=>{
   try{

@@ -43,7 +43,6 @@ const {postId}=useParams();
     const progress =
       (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
     setImageUploadPorgress(progress.toFixed(0));
-    console.log(progress.toFixed(0));
   },(error) => {
     setImageUpload(false);
     toast.error("Image upload failed");
@@ -61,7 +60,6 @@ const {postId}=useParams();
       setFormData({...formData,photoUrl:downloadURL})
       setImageUpload(false);
       setImageIsPresent(true);
-      console.log(downloadURL)
     });
   } );
   
@@ -82,7 +80,6 @@ const handleSubmit=async(e)=>{
     })
     const data=await res.json();
     if(res.ok){
-      console.log(data);
       toast.success("Post updated successfully");
       navigate(`/post/${data.slag}`);
     }
@@ -93,7 +90,6 @@ const handleSubmit=async(e)=>{
     toast.error("Post update failed");
   }
 }
-console.log(formData)
 useEffect(() => {
   const fetchPosts = async () => {
      try {

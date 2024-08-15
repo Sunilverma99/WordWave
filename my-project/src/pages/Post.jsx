@@ -43,7 +43,6 @@ export default function Post() {
           method: "PUT",
         });
         const data = await res.json();
-        console.log(data);
       } catch (error) {
         console.log(error);
       }
@@ -91,9 +90,11 @@ export default function Post() {
     <>
       <main className='flex'>
         <div className='p-3 flex flex-col max-w-screen-xl w-full min-h-screen'>
+         
           <h1 className='text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl'>
             {post && post.title}
           </h1>
+          
           <div className='flex text-center justify-center flex-wrap'>
           {post && post.category && post.category.length > 0 && (
             post.category.map((cat, index) => (
@@ -103,7 +104,10 @@ export default function Post() {
                 </Button>
               </Link>
             ))
-          )}</div>
+          )}
+          
+          </div>
+          
           <img
             src={post && post.photoUrl}
             alt={post && post.title}
@@ -114,6 +118,8 @@ export default function Post() {
             <span className='italic'>
               {post && (post.content.length / 1000).toFixed(0)} mins read
             </span>
+            <span className='italic'>views {post && post.numberOfViews.length}</span>
+
           </div>
           <div
             className='p-3 max-w-2xl mx-auto w-full post-content'

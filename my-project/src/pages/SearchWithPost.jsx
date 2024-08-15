@@ -12,6 +12,7 @@ function SearchWithPost() {
       });
     
       const [posts, setPosts] = useState([]);
+      const [trendingPosts, setTrendingPosts] = useState([]);
       const [loading, setLoading] = useState(false);
       const [showMore, setShowMore] = useState(false);
     
@@ -57,6 +58,26 @@ function SearchWithPost() {
         fetchPosts();
       }, [location.search]);
     
+      useEffect(() => {
+  
+        const fetchtrendingPosts = async () => {
+setLoading(true);
+          try {
+            const res = await fetch(`/api/post/get-trending-posts`, {
+              method: "GET"
+            });
+            const data = await res.json();
+
+            if (res.ok) {
+              setTrendingPosts(data);
+              setLoading(false);
+            }
+          } catch (error) {
+            console.log(error);
+          }
+        };
+        fetchtrendingPosts();
+      }, []);
       const handleChange = (e) => {
         if (e.target.id === 'searchTerm') {
           setSidebarData({ ...sidebarData, searchTerm: e.target.value });
@@ -131,7 +152,6 @@ function SearchWithPost() {
               value={sidebarData.category}
               id='category'
             >
-              <option value=''>Uncategorized</option>
               <option value='Business'>Business</option>
               <option value='Coding'>Coding</option>
               <option value='Design'>Design</option>
@@ -149,16 +169,16 @@ function SearchWithPost() {
       </div>
       <div className='w-full'>
         <h1 className='text-3xl font-semibold sm:border-b border-gray-500 p-3 mt-5 '>
-          Related Posts:
+          Trending Posts:
         </h1>
         <div className='p-7 flex flex-wrap gap-4'>
-          {!loading && posts.length === 0 && (
+          {!loading && trendingPosts && trendingPosts.length === 0 && (
             <p className='text-xl text-gray-500'>No posts found.</p>
           )}
           {loading && <p className='text-xl text-gray-500'>Loading...</p>}
           {!loading &&
-            posts &&
-            posts.map((post) => <PostCard key={post._id} post={post} />)}
+            trendingPosts &&
+            trendingPosts.map((trendingPost) => <PostCard key={trendingPost._id} post={trendingPost} />)}
           {showMore && (
             <button
               onClick={handleShowMore}

@@ -42,7 +42,6 @@ export default function DashProfile() {
   useEffect(() => {
     if (imageFile) {
       uploadImage();
-      console.log("hello");
     }
   }, [imageFile]);
 
@@ -76,7 +75,6 @@ export default function DashProfile() {
           setImageFileUrl(downloadURL);
           setPhotoUrl(downloadURL);
           setImageFileUploading(false);
-          console.log(downloadURL);
         });
       }
     );
@@ -86,7 +84,7 @@ export default function DashProfile() {
     e.preventDefault();
     setUpdateUserError(null);
     setUpdateUserSuccess(null);
- console. log(userName ,email,password ,photoUrl)
+
     if(userName===currentUser.userName&& email===currentUser.email&&password===currentUser.password&& photoUrl===currentUser.photoUrl){
       toast.error("Nothing is changed");
       return;
@@ -153,7 +151,6 @@ export default function DashProfile() {
         method:"POST"
       });
       const data=await res.json();
-      console.log(data);
       if(!res.ok){
         toast.error(data.message);
       }else{

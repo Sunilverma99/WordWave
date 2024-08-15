@@ -34,7 +34,6 @@ export default function Comment({postId,currentUser}) {
         const data=await res.json();
         if(res.ok){
             toast.success("Comment added successfully");
-            console.log(data);
             setComments([...comments,data])
             setComment("");
         }
@@ -58,7 +57,6 @@ export default function Comment({postId,currentUser}) {
        })
        const data=await res.json();
        if(res.ok){
-        console.log(data);
         setComments(comments.map((c)=>c._id===comment._id?data:c))
        }
       
@@ -94,7 +92,6 @@ export default function Comment({postId,currentUser}) {
  },[postId])
  
  const deleteComment=async(commentId)=>{
-  console.log("haryana");
   setShowModal(false);
     if(!currentUser){
       toast.error("You must be signed in to delete this comment")
@@ -105,7 +102,6 @@ export default function Comment({postId,currentUser}) {
         method:"DELETE",
       })
       const data=await res.json();
-      console.log(data)
       if(res.ok){
         toast.success("Comment deleted successfully");
         setComments(comments.filter((c)=>c._id!==commentId))

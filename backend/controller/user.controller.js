@@ -5,8 +5,6 @@ const user=(req,res)=>{
     res.send("hello sunil");
 } 
 const userUpdate=async(req,res,next)=>{
-    console.log(req.user);
-    console.log(req.params.id);
     if (req.user.id !== req.params.id) {
         return next(errHandler(403, 'You are not allowed to update this user'));
       }

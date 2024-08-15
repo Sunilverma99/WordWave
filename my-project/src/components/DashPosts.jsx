@@ -29,7 +29,6 @@ export default function DashPosts() {
   
           if (response) {
             const data = await response.json();
-            console.log(data);
             if (response.ok) {
               if (data.posts.length < 9) {
                 setShowMore(false);
@@ -62,7 +61,6 @@ export default function DashPosts() {
         method: "GET"
       });
       const data = await res.json();
-      console.log(data);
       if (res.ok) {
         if (data.posts.length < 9) {
           setShowMore(false);
@@ -79,12 +77,10 @@ export default function DashPosts() {
   const handleDeletePost = async () => {
     setShowModal(false);
     try {
-      console.log(deletePostId);
       const res = await fetch(`/api/post/delete-post/${deletePostId}/${currentUser._id}`, {
         method: "DELETE"
       });
       const data = await res.json();
-      console.log(data);
       if (res.ok) {
         toast.success("Post Deleted Successfully");
         setPosts(posts.filter(post => post._id !== deletePostId));
